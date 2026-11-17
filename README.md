@@ -26,7 +26,7 @@ A RESTful API built with Node.js, Express.js, and MySQL for managing movie recor
 1. Clone the repository:
 
    ```bash
-   git clone YOUR_GITHUB_REPOSITORY_URL
+   git clone https://github.com/KarenSamehS/movies-management-app.git
    ```
 
 2. Navigate to the project directory:
