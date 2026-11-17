@@ -1,7 +1,9 @@
 const movieModel = require("../models/movieModel");
 
 const getAllMovies = (req, res) => {
-    movieModel.getAllMovies((err, results) => {
+    const filters = req.query;
+
+    movieModel.getAllMovies(filters, (err, results) => {
         if (err) {
             return res.status(500).json({
                 message: "Error fetching movies"

@@ -1,9 +1,25 @@
 const db = require("../config/db");
 
-const getAllMovies = (callback) => {
-    const sql = "SELECT * FROM movies";
+const getAllMovies = (filters, callback) => {
+    let sql = "SELECT * FROM movies WHERE 1=1";
+    const values = [];
 
-    db.query(sql, callback);
+    if (filters.name) {
+        sql += " AND name LIKE ?";
+        values.push(`%${filters.name}%`);
+    }
+
+    if (filters.year) {
+        sql += " AND year = ?";
+        values.push(filters.year);
+    }
+
+    if (filters.category) {
+        sql += " AND category = ?";
+        values.push(filters.category);
+    }
+
+    db.query(sql, values, callback);
 };
 
 module.exports = {
